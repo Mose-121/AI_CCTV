@@ -758,7 +758,7 @@ class DeepBlueLoginDialog(QDialog):
     def __init__(self, api: APIClient, parent=None):
         super().__init__(parent)
         self.api = api
-        self.setWindowTitle("CCTV Login")
+        self.setWindowTitle("AI-CCTV Login")
         self.setFixedSize(420, 480)
         self.setStyleSheet(
             """
@@ -788,7 +788,7 @@ class DeepBlueLoginDialog(QDialog):
         logo_label.setAlignment(Qt.AlignCenter)
         layout.addWidget(logo_label)
 
-        title = QLabel("CCTV Secure Login", objectName="titleLabel"); title.setAlignment(Qt.AlignCenter)
+        title = QLabel("AI-CCTV Secure Login", objectName="titleLabel"); title.setAlignment(Qt.AlignCenter)
         layout.addWidget(title)
 
         form = QFormLayout()
@@ -2509,7 +2509,8 @@ class YouTubeLikePlayer(QWidget):
         self.btn_speed.setText("1.0x")
         speed_menu = QMenu(self.btn_speed)
         for sp in [0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 2.0]:
-            act = QAction(f"{sp}x", speed_menu, triggered=lambda _, s=sp: self.set_rate(s))
+            act = QAction(f"{sp}x", speed_menu)
+            act.triggered.connect(lambda _, s=sp: self.set_rate(s))
             speed_menu.addAction(act)
         self.btn_speed.setMenu(speed_menu)
         self.btn_speed.setPopupMode(QToolButton.InstantPopup)
@@ -3665,7 +3666,7 @@ class DeepBlueGridUltimate(QMainWindow):
     def __init__(self):
         super().__init__()
         self.api = APIClient(CONFIG["SERVER_BASE"])
-        self.setWindowTitle("Deep Blue CCTV Client - Ultimate Grid Edition")
+        self.setWindowTitle("AI-CCTV Client - Ultimate Grid Edition")
         self.setMinimumSize(1300, 800)
         self.open_dialogs: Dict[str, QDialog] = {}
         if os.path.exists(LOGO_PATH):
@@ -3987,7 +3988,8 @@ class DeepBlueGridUltimate(QMainWindow):
     def _create_segment_menu(self) -> QMenu:
         menu = QMenu(self)
         for minutes in [1, 2, 3]:
-            action = QAction(f"{minutes} minutes", self, triggered=lambda _, m=minutes: self._set_segment_time(m))
+            action = QAction(f"{minutes} minutes", self)
+            action.triggered.connect(lambda _, m=minutes: self._set_segment_time(m))
             menu.addAction(action)
         return menu
 
@@ -4278,7 +4280,7 @@ class SplashScreen(QSplashScreen):
         
         painter.setPen(QColor("#00aaff"))
         painter.setFont(QFont("Segoe UI", 20, QFont.Bold))
-        painter.drawText(pixmap.rect().adjusted(0, 100, 0, 0), Qt.AlignCenter, "Deep Blue CCTV Client")
+        painter.drawText(pixmap.rect().adjusted(0, 100, 0, 0), Qt.AlignCenter, "AI-CCTV Client")
         
         # ✅ เพิ่ม version/subtitle
         painter.setFont(QFont("Segoe UI", 10))

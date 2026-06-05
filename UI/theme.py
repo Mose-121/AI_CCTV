@@ -1,6 +1,6 @@
 """
 theme.py — Premium Monochrome (White/Gray/Black) Design System
-with shadow effects and animation utilities for Teg-CCTV Client.
+with shadow effects and animation utilities for AI-CCTV Client.
 """
 from PyQt5.QtWidgets import QGraphicsDropShadowEffect, QWidget, QDialog
 from PyQt5.QtCore import (QPropertyAnimation, QEasingCurve, QParallelAnimationGroup,

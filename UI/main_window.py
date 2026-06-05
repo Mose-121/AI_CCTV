@@ -16,7 +16,7 @@ class DeepBlueGridUltimate(QMainWindow):
     def __init__(self):
         super().__init__()
         self.api = APIClient(CONFIG["SERVER_BASE"])
-        self.setWindowTitle("Deep Blue CCTV Client — Ultimate Grid Edition")
+        self.setWindowTitle("AI-CCTV Client — Ultimate Grid Edition")
         self.setMinimumSize(1300, 800)
         self.open_dialogs: Dict[str, QDialog] = {}
 
