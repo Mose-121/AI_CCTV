@@ -82,7 +82,8 @@ class YouTubeLikePlayer(QWidget):
             QMenu::item:selected {{ background: {Colors.PRIMARY_BG}; color: {Colors.PRIMARY_HOVER}; }}
         """)
         for sp in [0.25, 0.5, 0.75, 1.0, 1.25, 1.5, 2.0]:
-            act = QAction(f"{sp}x", speed_menu, triggered=lambda _, s=sp: self.set_rate(s))
+            act = QAction(f"{sp}x", speed_menu)
+            act.triggered.connect(lambda _, s=sp: self.set_rate(s))
             speed_menu.addAction(act)
         self.btn_speed.setMenu(speed_menu)
         self.btn_speed.setPopupMode(QToolButton.InstantPopup)
@@ -530,7 +531,7 @@ class SplashScreen(QSplashScreen):
         # ── Title (white) ─────────────────────────────────────────
         painter.setPen(QColor("#f0f0f0"))
         painter.setFont(QFont("Segoe UI", 24, QFont.Bold))
-        painter.drawText(pixmap.rect().adjusted(0, 95, 0, 0), Qt.AlignCenter, "DEEP BLUE CCTV")
+        painter.drawText(pixmap.rect().adjusted(0, 95, 0, 0), Qt.AlignCenter, "AI-CCTV")
 
         # ── Subtitle ──────────────────────────────────────────────
         painter.setFont(QFont("Segoe UI", 10))

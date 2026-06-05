@@ -15,7 +15,7 @@ class DeepBlueLoginDialog(QDialog):
     def __init__(self, api: APIClient, parent=None):
         super().__init__(parent)
         self.api = api
-        self.setWindowTitle("Login — Deep Blue CCTV")
+        self.setWindowTitle("Login — AI-CCTV")
         self.setFixedSize(420, 560)
         self.setStyleSheet(LOGIN_STYLESHEET)
         self.setWindowFlags(self.windowFlags() & ~Qt.WindowContextHelpButtonHint)
@@ -37,7 +37,7 @@ class DeepBlueLoginDialog(QDialog):
         layout.addSpacing(12)
 
         # ── Title ─────────────────────────────────────────────────
-        title = QLabel("Deep Blue CCTV")
+        title = QLabel("AI-CCTV")
         title.setObjectName("titleLabel")
         title.setAlignment(Qt.AlignCenter)
         layout.addWidget(title)
