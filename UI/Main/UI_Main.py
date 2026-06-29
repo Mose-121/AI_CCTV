@@ -27,7 +27,7 @@ APP_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_FILE = os.path.join(APP_DIR, "config.json")
 # NEW: Path for assets
 ASSETS_DIR = os.path.join(APP_DIR, "assets")
-LOGO_PATH = os.path.join(ASSETS_DIR, "logo.png")
+LOGO_PATH = os.path.join(ASSETS_DIR, "Logo-1.jpg")
 
 
 def infer_rtsp_variants(rtsp_url: str) -> Tuple[str, str]:
